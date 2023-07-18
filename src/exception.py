@@ -1,7 +1,8 @@
 #Exception handling is done here
 
 import sys  # All the exception occurence , the sys library will have the information/ sys module in python provides various functions and variables that are used to manipulate different parts of the Python Runtime environment
-import logging
+from src.logger import logging
+
 def error_message_detail(error, error_detail:sys):
     _,_,exc_tb = error_detail.exc_info()    #the third parameter from .exc_info will provide which file,line no the exception has occured
     
@@ -20,12 +21,12 @@ class CustomException(Exception):
     def __str__(self):
         return self.error_message
     
-# if __name__=="__main__":
-#     try:
-#         a= 1/0
-#     except Exception as e:
-#         logging.info("Divide by Zero")
-#         raise CustomException(e,sys)
+if __name__=="__main__":
+    try:
+        a= 1/0
+    except Exception as e:
+        logging.info("Divide by Zero")
+        raise CustomException(e,sys)
     
 
 """ 
